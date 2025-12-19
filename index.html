@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <title>فروشگاه قطعات کامپیوتر</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body class="bg-gray-900 text-gray-100">
+        <header class="bg-gray-800 p-4 flex justify-between items-center shadow-lg">
+            <h1 class="text-xl font-bold">🖥 فروشگاه قطعات کامپیوتر YES</h1>
+
+            <button onclick="toggleCart()" class="relative">
+                🛒
+                <span id="cartCount"
+                    class="absolute -top-2 -left-2 bg-red-600 text-xs px-2 rounded-full">0</span>
+            </button>
+        </header>
+
+        <main id="productList" class="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        </main>
+
+        <!-- Product Modal -->
+        <div id="productModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
+            <div id="modalBox" class="bg-gray-800 rounded-xl p-6 w-11/12 md:w-1/2 transform scale-90 opacity-0 transition-all duration-300">
+                <button onclick="closeModal()" class="text-red-400 mb-2">✖ بستن</button>
+                <h2 id="modalTitle" class="text-xl font-bold mb-2"></h2>
+                <img id="modalImage" class="w-full h-60 object-contain mb-4">
+                <p id="modalDesc" class="mb-2 text-gray-300"></p>
+                <p id="modalPrice" class="font-bold mb-4"></p>
+                <button onclick="addToCartFromModal()" class="bg-green-600 hover:bg-green-700 transition px-4 py-2 rounded">
+                    افزودن به سبد خرید
+                </button>
+            </div>
+        </div>
+
+        <!-- Cart -->
+        <div id="cart" class="fixed top-0 left-0 h-full w-full md:w-1/3 bg-gray-800 shadow-2xl p-4 transform -translate-x-full transition-transform duration-300 z-50">
+
+            <h2 class="text-lg font-bold mb-4 border-b border-gray-600 pb-2">🛒 سبد خرید</h2>
+
+            <div id="cartItems" class="space-y-4"></div>
+
+            <div class="border-t border-gray-600 mt-4 pt-4">
+                <p class="font-bold text-lg">
+                    مجموع:
+                    <span id="totalPrice" class="text-green-500">0</span> تومان
+                </p>
+
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 transition w-full mt-4 py-2 rounded-lg">
+                    تایید نهایی خرید
+                </button>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
